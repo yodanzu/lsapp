@@ -8,8 +8,10 @@
         <p style="font-size:25px">Rank Requirements: {{$course->rank_requirements}}</p>
         <p style="font-size:25px">Course Fee: ₱{{$course->course_fee}}</p>
     <hr>
+        <a href="">Add Slot</a>
         <medium>Written on {{$course->created_at}}</medium>
     <hr>
+    <a href="/scheds/create" class="btn btn-default">Add Slot</a>
     @if(!Auth::guest())
         @if(Auth::user()->id == $course->user_id)
         <a href="/courses/{{$course->id}}/edit" class="btn btn-default">Edit</a>

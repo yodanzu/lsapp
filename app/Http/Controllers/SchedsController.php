@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Eloquent;
 use App\Sched;
+use DB;
+
 
 class SchedsController extends Controller
 {
@@ -63,21 +66,56 @@ class SchedsController extends Controller
             'instructor_id' => 'required'
         ]);
 
-        /*DB::select('scheds')
-            ->where('start_date', '<=', $start_date)
-            ->andWhere('end_date', '>=', $end_date)*/
+        // dd($request->input('start_date'));
 
-        // Create Sched
-        $sched = new Sched;
-        $sched->slot_code = $request->input('slot_code');
-        $sched->start_date = $request->input('start_date');
-        $sched->end_date = $request->input('end_date');
-        $sched->room_id = $request->input('room_id');
-        $sched->instructor_id = $request->input('instructor_id');
-        $sched->user_id = auth()->user()->id;
-        $sched->save();
+        // Sched::enableQueryLog();
+
+        // $slot_code = $request->input('slot_code');
+        // $start_date = $request->input('start_date');
+        // $end_date = $request->input('end_date');
+        // $room_id = $request->input('room_id');
+        // $instructor_id = $request->input('instructor_id');
+
+        $input = $request->all();
+
+        $checkSched = Sched::where(function ($query) use ($request) {
+            $query->whereBetween('start_date', [$request->input('start_date'), $request->input('end_date')]); 
+        })->orWhere(function($query) use ($request) {
+            $query->whereBetween('end_date', [$request->input('start_date'), $request->input('end_date')]);
+        })->where('room_id', [$request->input('end_date')])
+            ->where('instructor_id', [$request->input('instructor_id')])
+            ->where('slot_code', [$request->input('instructor_id')])
+            ->get();
+            //  dd($checkSched);
+
+        // $checkSched = Sched::whereBetween('start_date', [$request->input('start_date'), $request->input('end_date')]);
+
+            // dd(Sched::getQueryLog());
+
+        if ($checkSched->count() > 0) {
+            //echo $checkSched->getSlotCode();
+            // $checkSched->pluck('start_date', 'end_date', 'end_date', 'instructor_id', 'slot_code')->toArray();
+            echo "<pre>";
+            foreach ($checkSched as $key => $value) {
+                var_dump($value);
+            }
+            echo "</pre>";
+            exit;
             
-        return redirect('/scheds')->with('success', 'Schedule Created');
+            return redirect('/scheds')->with('error', 'Conflict');
+        } else {
+            // Create Sched
+            $sched = new Sched;
+            $sched->slot_code = $request->input('slot_code');
+            $sched->start_date = $request->input('start_date');
+            $sched->end_date = $request->input('end_date');
+            $sched->room_id = $request->input('room_id');
+            $sched->instructor_id = $request->input('instructor_id');
+            $sched->user_id = auth()->user()->id;
+            $sched->save();
+
+            return redirect('/scheds')->with('success', 'Schedule Created');
+        }
     }
 
     /**
