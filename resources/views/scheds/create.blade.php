@@ -2,7 +2,6 @@
 
 @section('content')
 <h1>Create Post</h1>
-    {!! Form::open(['action'=>'/courses/{{$course->id}}', 'method' => 'POST']) !!}
     {!! Form::open(['action' => 'SchedsController@store', 'method' => 'POST']) !!}
         <div class="form-group">
             {{Form::label('slot_code', 'Slot Code')}}

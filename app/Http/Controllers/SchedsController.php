@@ -3,10 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Eloquent;
 use App\Sched;
 use DB;
-
 
 class SchedsController extends Controller
 {

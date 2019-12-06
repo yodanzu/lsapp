@@ -2,13 +2,10 @@
 
 namespace App;
 
-use Elasticquent\ElasticquentTrait;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Model as Eloquent;
 
 class Sched extends Eloquent
-{
-	use ElasticquentTrait;
-}
+   
 {
     // Table Name
     protected $table = 'scheds';
