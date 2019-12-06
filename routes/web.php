@@ -30,6 +30,12 @@ Route::resource('courses', 'CoursesController');
 Route::resource('posts', 'PostsController');
 Route::resource('scheds', 'SchedsController');
 Route::resource('files', 'FilesController');
+// Route::get('scheds', 'SchedsController@index');
+// Route::get('scheds/create', 'SchedsController@create');
+// Route::post('/scheds', 'SchedsController@store');
+// Route::get('scheds/{sched}', 'SchedsController@index');
+
+
 
 Auth::routes();
 

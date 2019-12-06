@@ -2,17 +2,16 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model as Eloquent;
+use Illuminate\Database\Eloquent\Model;
 
-class Sched extends Eloquent
-   
+class Sched extends Model
 {
     // Table Name
     protected $table = 'scheds';
     // Primary Key
-    public $primarykey = 'id';
+    public $primaryKey = 'id';
     // Timestamp
-    // public $timestamps = true;
+    public $timestamps = true;
     // public $slot_code;
     // public $start_date;
     // public $end_date;
