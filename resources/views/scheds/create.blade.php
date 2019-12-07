@@ -2,10 +2,11 @@
 
 @section('content')
 <h1>Create Post</h1>
-    {!! Form::open(['action' => 'SchedsController@store', 'method' => 'POST']) !!}
+
+        {!! Form::open(['action' => 'SchedsController@store', 'method' => 'POST']) !!}
         <div class="form-group">
             {{Form::label('slotCode', 'Slot Code')}}
-            {{Form::number('slotCode', '', ['class' => 'form-control', 'placeholder' => 'Slot Code'])}}
+            {{Form::text('slotCode', $slotCode, ['class' => 'form-control', 'placeholder' => 'Slot Code'])}}
         </div>
         <div class="form-group">
             {{Form::label('startDate', 'Start Date')}}

@@ -36,9 +36,10 @@ class SchedsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('scheds.create');
+        $slotCode = ($request->input('slotCode') !== null ? $request->input('slotCode') : '');
+        return view('scheds.create')->with('slotCode', $slotCode);
     }
 
     /**
@@ -140,13 +141,41 @@ class SchedsController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'slot_code' => 'required',
-            'start_date' => 'required',
-            'end_date' => 'required',
-            'room_id' => 'required',
-            'instructor_id' => 'required',
+            'slotCode' => 'required',
+            'startDate' => 'required',
+            'endDate' => 'required',
+            'roomId' => 'required',
+            'instructorId' => 'required'
         ]);
 
+        $input = $request->all();
+
+        $checkSched = DB::table('scheds')->where(function ($query) use ($request) {
+            $query->where('startDate', '<=', $request->input('startDate'))
+                    ->where('endDate', '>=', $request->input('startDate'));
+        })->orWhere(function($query) use ($request) {
+            $query->where('startDate', '>=', $request->input('endDate'))
+                ->where('endDate', '<=', $request->input('endDate'));
+        })->where('roomId', $request->input('roomId'))
+                ->where('instructorId', $request->input('instructorId'))
+                ->where('slotCode', $request->input('slotCode'))
+            ->get();
+
+            // dd($checkSched);
+
+        if ($checkSched->count() > 0) {
+
+            $data = [
+                'error' => "Conflict",
+                'slotCode'  => $checkSched[0]->slotCode,
+                'startDate'  => $checkSched[0]->startDate,
+                'endDate'  => $checkSched[0]->endDate,
+                'roomId'  => $checkSched[0]->roomId,
+                'instructorId'  => $checkSched[0]->instructorId,
+            ];
+
+            return redirect('/scheds')->with($data);
+        } else {
         // Create Sched
         $sched = Sched::find($id);
         $sched->slot_code = $request->input('slot_code');
@@ -158,6 +187,7 @@ class SchedsController extends Controller
 
         return redirect('/scheds')->with('success', 'Schedule Updated');
     }
+}
 
     /**
      * Remove the specified resource from storage.

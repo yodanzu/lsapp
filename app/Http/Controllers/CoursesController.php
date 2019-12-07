@@ -57,18 +57,18 @@ class CoursesController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'course_description' => 'required',
-            'subject_description' => 'required',
-            'rank_requirements' => 'required',
-            'course_fee' => 'required'
+            'courseDescription' => 'required',
+            'subjectDescription' => 'required',
+            'rankRequirements' => 'required',
+            'courseFee' => 'required'
         ]);
 
         // Create Course
         $course = new Course;
-        $course->course_description = $request->input('course_description');
-        $course->subject_description = $request->input('subject_description');
-        $course->rank_requirements = $request->input('rank_requirements');
-        $course->course_fee = $request->input('course_fee');
+        $course->courseDescription = $request->input('courseDescription');
+        $course->subjectDescription = $request->input('subjectDescription');
+        $course->rankRequirements = $request->input('rankRequirements');
+        $course->courseFee = $request->input('courseFee');
         $course->user_id = auth()->user()->id;
         $course->save();
 
@@ -115,18 +115,18 @@ class CoursesController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'course_description' => 'required',
-            'subject_description' => 'required',
-            'rank_requirements' => 'required',
-            'course_fee' => 'required'
+            'courseDescription' => 'required',
+            'subjectDescription' => 'required',
+            'rankRequirements' => 'required',
+            'courseFee' => 'required'
         ]);
 
         // Create Course
         $course = Course::find($id);
-        $course->course_description = $request->input('course_description');
-        $course->subject_description = $request->input('subject_description');
-        $course->rank_requirements = $request->input('rank_requirements');
-        $course->course_fee = $request->input('course_fee');
+        $course->courseDescription = $request->input('courseDescription');
+        $course->subjectDescription = $request->input('subjectDescription');
+        $course->rankRequirements = $request->input('rankRequirements');
+        $course->courseFee = $request->input('courseFee');
         $course->save();
 
         return redirect('/courses')->with('success', 'Course Updated');

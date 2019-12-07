@@ -3,10 +3,10 @@
 @section('content')
     <a href="/courses" class="btn btn-default">Go back</a>
     <br><br>
-        <p style="font-size:25px">Course Discription: {{$course->course_description}}</p>
-        <p style="font-size:25px">Course Name: {{$course->subject_description}}</p>
-        <p style="font-size:25px">Rank Requirements: {{$course->rank_requirements}}</p>
-        <p style="font-size:25px">Course Fee: ₱{{$course->course_fee}}</p>
+        <p style="font-size:25px">Course Discription: {{$course->courseDescription}}</p>
+        <p style="font-size:25px">Course Name: {{$course->subjectDescription}}</p>
+        <p style="font-size:25px">Rank Requirements: {{$course->rankRequirements}}</p>
+        <p style="font-size:25px">Course Fee: ₱{{$course->courseFee}}</p>
     <hr>
         <a href="">Add Slot</a>
         <medium>Written on {{$course->created_at}}</medium>
