@@ -19,43 +19,43 @@ class Sched extends Model
     // public $instructor_id;
 
     public function getSlotCode(){
-        return $this->attribute['slot_code'];
+        return $this->attribute['slotCode'];
     }
 
     public function setSlotCode($value){
-        $this->attribute['slot_code'] = $value;
+        $this->attribute['slotCode'] = $value;
     }
 
     public function getStartDate(){
-        return $this->attribute['start_date'];
+        return $this->attribute['startDate'];
     }
 
     public function setStartDate($value){
-        $this->attribute['start_date'] = $value;
+        $this->attribute['startDate'] = $value;
     }
 
     public function getEndDate(){
-        return $this->attribute['end_date'];
+        return $this->attribute['endDate'];
     }
 
     public function setEndDate($value){
-        $this->attribute['end_date'] = $value;
+        $this->attribute['endDate'] = $value;
     }
 
     public function getRoomId(){
-        return $this->attribute['room_id'];
+        return $this->attribute['roomId'];
     }
 
     public function setRoomId($value){
-        $this->attribute['room_id'] = $value;
+        $this->attribute['roomId'] = $value;
     }
 
     public function getInstructorId(){
-        return $this->attribute['instructor_id'];
+        return $this->attribute['instructorId'];
     }
 
     public function setInstructorId($value){
-        $this->attribute['instructor_id'] = $value;
+        $this->attribute['instructorId'] = $value;
     }
 
     public function user(){
