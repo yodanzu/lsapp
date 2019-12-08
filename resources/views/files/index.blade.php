@@ -6,6 +6,9 @@
         @foreach($files as $file)
             <div class="well">
                 <h3><a href="/files/{{$file->id}}">{{$file->description}}</a></h3>
+                <div class="col-md-4 col-sm-4">
+                    <img style="width:100%" src="/storage/cover_images/{{$file->file}}">
+                </div>
                 <medium>Written on {{$file->created_at}}</medium>
             </div>
         @endforeach

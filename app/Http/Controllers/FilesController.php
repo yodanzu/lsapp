@@ -57,16 +57,35 @@ class FilesController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'description' => 'required'
+            'description' => 'required',
+            'file' => 'required|mimes:pdf|max:10000'
         ]);
+        
+        // Handle File Upload
+        if($request->hasFile('file')){
+            // Get filename with the extension
+            $filenameWithExt = $request->file('file')->getClientOriginalName();
+            // Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            // Get just ext
+            $extension = $request->file('file')->getClientOriginalExtension();
+            // Filename to store
+            $fileNameToStore= $filename.'_'.time().'.'.$extension;
+            // Upload Image
+            $path = $request->file('file')->storeAs('public/cover_images', $fileNameToStore);
+        } 
+        // else {
+        //     $fileNameToStore = 'noimage.jpg';
+        // }
 
-        // Create File
+        //Create Post
         $file = new File;
         $file->description = $request->input('description');
-        $file->user_id = auth()-user()->id;
+        $file->user_id = auth()->user()->id;
+        $file->file = $fileNameToStore;
         $file->save();
 
-        return redirect('/files')->with('success', 'Reviewers & Manuals Created'); 
+        return redirect('/files')->with('success', 'Reviewers & Manuals Creater');
     }
 
     /**

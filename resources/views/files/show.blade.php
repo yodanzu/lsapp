@@ -5,6 +5,8 @@
     <br><br>
         <p style="font-size:25px">File Discription: {{$file->description}}</p>
     <hr>
+    <img style="width:100%" src="/storage/cover_images/{{$file->file}}">
+    <br><br>
         <medium>Written on {{$file->created_at}}</medium>
     <hr>
     @if(!Auth::guest())

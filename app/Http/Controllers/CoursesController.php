@@ -25,15 +25,6 @@ class CoursesController extends Controller
      */
     public function index()
     {
-        //$courses = Course::all();
-        //return Course::where('course_description', 'STCW Courses')->get();
-
-        /* SQL type query 
-        $courses = DB::select('SELECT * FROM courses');*/
-
-        //$courses =  Course::orderBy('course_description', 'desc')->take(1)->get();
-        //$courses =  Course::orderBy('course_description', 'desc')->get();
-
         $courses =  Course::orderBy('created_at', 'decs')->paginate(10);
         return view('courses.index')->with('courses', $courses);
     }
