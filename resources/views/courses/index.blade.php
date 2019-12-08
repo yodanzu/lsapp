@@ -8,7 +8,10 @@
                 <h3><a href="/courses/{{$course->id}}">{{$course->subjectDescription}}</a></h3>
                 <medium>Course Description: {{$course->courseDescription}}</medium><br>
                 <medium>Written on {{$course->created_at}}</medium>
-                <a href="/scheds/create?slotCode={{$course->subjectDescription}}" class="pull-right">Add Slot</a>
+                <div align="left">
+                    <a href="/scheds/create?slotCode={{$course->subjectDescription}}" class="btn btn-default">Add Slot</a>
+                    <a href="/files/create?description={{$course->subjectDescription}}" class="btn btn-default">Add Files</a>
+                </div>
             </div>
         @endforeach
         {{$courses->links()}}

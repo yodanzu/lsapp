@@ -42,9 +42,10 @@ class FilesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('files.create');
+        $description = ($request->input('description') !== null ? $request->input('description') : '');
+        return view('files.create')->with('description', $description);
     }
 
     /**
