@@ -6,7 +6,6 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
                 <div class="panel-heading">Dashboard</div>
-
                 <div class="panel-body">
                     <a href="/posts/create" class="btn btn-primary">Create Post</a>
                     <h3>Your Blog Posts</h3>
@@ -46,7 +45,7 @@
                             </tr>
                             @foreach($courses as $course)
                                 <tr>
-                                    <td>{{$course->subject_description}}</td>
+                                    <td>{{$course->subjectDescription}}</td>
                                     <td><a href="/courses/{{$course->id}}/edit" class="btn btn-default">Edit</a></td>
                                     <td>
                                         {!!Form::open(['action' => ['CoursesController@destroy', $course->id], 'method' => 'POST', 'class' => 'pull-right'])!!}
@@ -73,7 +72,7 @@
                             </tr>
                             @foreach($scheds as $sched)
                                 <tr>
-                                    <td>{{$sched->slot_code}}</td>
+                                    <td>{{$sched->slotCode}}</td>
                                     <td><a href="/scheds/{{$sched->id}}/edit" class="btn btn-default">Edit</a></td>
                                     <td>
                                         {!!Form::open(['action' => ['SchedsController@destroy', $sched->id], 'method' => 'POST', 'class' => 'pull-right'])!!}

@@ -7,6 +7,9 @@
             {{Form::label('description', 'Description')}}
             {{Form::text('description', $file->description, ['class' => 'form-control', 'placeholder' => 'Description'])}}
         </div>
+        <div class="form-group">
+            {{Form::file('file')}}
+        </div>
         {{Form::hidden('_method', 'PUT')}}
         {{Form::submit('Submit', ['class' => 'btn btn-primary'])}}
     {!! Form::close() !!}

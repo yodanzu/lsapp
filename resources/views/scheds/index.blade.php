@@ -39,7 +39,7 @@
                     @foreach($scheds as $sched)
                         <tr>
                             <td><h3>
-                                <a href="/scheds/{{$sched->id}}">{{$sched->slotCode}}</a>
+                                {{$sched->slotCode}}
                             </h3></td>
                             <td><h3>
                                 {{$sched->startDate}}
