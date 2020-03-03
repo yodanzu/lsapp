@@ -33,7 +33,7 @@ class FilesController extends Controller
         //$files =  File::orderBy('description', 'desc')->take(1)->get();
         //$files =  File::orderBy('description', 'desc')->get();
 
-        $files =  File::orderBy('created_at', 'decs')->paginate(10);
+        $files =  File::orderBy('created_at', 'desc')->paginate(10);
         return view('files.index')->with('files', $files);
     }
 

@@ -26,7 +26,7 @@ class SchedsController extends Controller
     public function index()
     {
     
-        $scheds =  Sched::orderBy('created_at', 'decs')->paginate(10);
+        $scheds =  Sched::orderBy('created_at', 'desc')->paginate(10);
         return view('scheds.index')->with('scheds', $scheds);
     }
     
