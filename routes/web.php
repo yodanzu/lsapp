@@ -22,15 +22,21 @@ Route::get('/users/{id}/{name}', function($id, $name){
 });
 */
 
-Route::get('/', 'PagesController@index');
-Route::get('/about', 'PagesController@about');
-Route::get('/services', 'PagesController@services');
 
-Route::resource('courses', 'CoursesController');
-Route::resource('posts', 'PostsController');
-Route::resource('scheds', 'SchedsController');
-Route::resource('files', 'FilesController');
 
-Auth::routes();
+Route::auth(['register'=>false]);
 
-Route::get('/dashboard', 'DashboardController@index');
+Route::get('/', function(){
+	return view('auth/login');
+});
+
+
+Route::group(['middleware' => ['auth']], function() {
+
+	Route::get('/dashboard', 'Admin\DashboardController@dashboard')->name('dashboard');
+
+
+
+});
+
+

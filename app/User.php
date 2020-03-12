@@ -3,12 +3,15 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use HasRoles;
 
+    protected $guard_name = 'web';
     /**
      * The attributes that are mass assignable.
      *
