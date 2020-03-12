@@ -27,13 +27,51 @@
                 </a>
             </li>
             <li class="nav-item ">
-            <a href="" class="nav-link">
-                <i class="nav-icon fas fa-users"></i>
-                <p>
-                    User Management
-                </p>
-            </a>
+              <a href="" class="nav-link">
+                  <i class="nav-icon fas fa-users"></i>
+                  <p>
+                      User Management
+                  </p>
+              </a>
             </li>
+
+            <li class="nav-item has-treeview">
+              <a href="#" class="nav-link ">
+                <i class="nav-icon fas fa-cogs"></i>
+                <p>
+                  Table Maintenance
+                  <i class="right fas fa-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav-item nav-treeview">
+                <li class="nav-item ml-3">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-folder nav-icon"></i>
+                    <p>
+                      Common
+                    <i class="right fas fa-angle-left"></i>
+                    
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-link ml-2">
+                      <a href="#">
+                       <i class="nav-icon fas fa-cog"></i>
+                        Subject
+                      </a>
+                    </li>
+                    <li class="nav-link ml-2">
+                      <a href="#">
+                       <i class="nav-icon fas fa-cog"></i>
+                        Course
+                      </a>
+                    </li>
+
+                  </ul>
+                </li>
+              </ul>
+          </li>
+          </ul>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
