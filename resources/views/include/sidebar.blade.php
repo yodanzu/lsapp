@@ -28,7 +28,7 @@
             </li>
             <li class="nav-item ">
               <a href="" class="nav-link">
-                  <i class="nav-icon fas fa-users"></i>
+                  <i class="nav-icon fas fa-users-cog "></i>
                   <p>
                       User Management
                   </p>
@@ -66,7 +66,6 @@
                         Course
                       </a>
                     </li>
-
                   </ul>
                 </li>
               </ul>
