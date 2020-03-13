@@ -38,13 +38,14 @@
                         <input type="email" class="form-control" placeholder="Email" name="email" autocomplete="off" required autofocus value=" {{ old('email')}}">
                         <div class="input-group-append">
                             <div class="input-group-text">
-                                <span class="fas fa-envelope">
+                                <span class="fas fa-envelope" >
                                 </span>
                             </div>
                         </div>
-
+                        
                         @if( $errors->has('email'))
-                            <span class="help-block">
+                            <span class="help-block  alert alert-danger mt-2" role="alert" >
+                                <i class="fas fa-exclamation-triangle"> </i>
                                 <strong>
                                     {{ $errors->first('email') }}
                                 </strong>

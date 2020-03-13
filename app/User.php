@@ -11,7 +11,6 @@ class User extends Authenticatable
     use Notifiable;
     use HasRoles;
 
-    protected $guard_name = 'web';
     /**
      * The attributes that are mass assignable.
      *
@@ -28,6 +27,16 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password', 'remember_token',
+    ];
+
+    protected $guard_name = [
+        'super-admin',
+        'admin',
+        'instructor',
+        'registrar',
+        'cashier',
+        'trainee',
+        'web'
     ];
 
     public function posts()

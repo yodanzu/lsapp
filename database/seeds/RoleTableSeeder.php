@@ -18,35 +18,43 @@ class RoleTableSeeder extends Seeder
         
         $superAdmin = Role::create([
             'name' => 'Super-Admin',
-            'guard_name' => 'web',
+            'guard_name' => 'super-admin',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);
     	
         $admin = Role::create([
             'name' => 'Admin',
-            'guard_name' => 'web',
+            'guard_name' => 'admin',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]); 
 
+        $instructor = Role::create([
+            'name' => 'Instructor',
+            'guard_name' => 'instructor',
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
+        ]);  
+
+
         $registrar = Role::create([
             'name' => 'Registrar',
-            'guard_name' => 'web',
+            'guard_name' => 'registrar',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);  
 
         $cashier = Role::create([
             'name' => 'Cashier',
-            'guard_name' => 'web',
+            'guard_name' => 'cashier',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);  
 
         $trainee = Role::create([
             'name' => 'Trainee',
-            'guard_name' => 'web',
+            'guard_name' => 'trainee',
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ]);

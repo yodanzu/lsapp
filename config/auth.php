@@ -15,6 +15,12 @@ return [
 
     'defaults' => [
         'guard' => 'web',
+        'guard' => 'super-admin',
+        'guard' => 'admin',
+        'guard' => 'instructor',
+        'guard' => 'registrar',
+        'guard' => 'cashier',
+        'guard' => 'trainee',
         'passwords' => 'users',
     ],
 
@@ -37,6 +43,36 @@ return [
 
     'guards' => [
         'web' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+
+        'super-admin' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+
+        'instructor' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+
+        'registrar' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+
+        'cashier' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+
+        'trainee' => [
             'driver' => 'session',
             'provider' => 'users',
         ],
