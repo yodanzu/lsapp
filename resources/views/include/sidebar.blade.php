@@ -30,42 +30,40 @@
                   </p>
               </a>
             </li>
-
-            <li class="nav-item has-treeview">
-              <a href="#" class="nav-link ">
-                <i class="nav-icon fas fa-cogs"></i>
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-cogs"></i>
                 <p>
-                  Table Maintenance
+                  Table & Maintenance
                   <i class="right fas fa-angle-left"></i>
                 </p>
-              </a>
-              <ul class="nav-item nav-treeview">
-                <li class="nav-item ml-3">
-                  <a href="#" class="nav-link">
-                    <i class="far fa-folder nav-icon"></i>
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item has-treeview">
+                <a href="#" class="nav-link ml-2">
+                   <i class="far fa-folder nav-icon pb-2"></i>
                     <p>
                       Common
                     <i class="right fas fa-angle-left"></i>
-                    
-                    </p>
-                  </a>
-                  <ul class="nav nav-treeview">
-                    <li class="nav-link ml-2">
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item ml-5 pb-2">
+                      <a href="{{ route('view.course.index') }}">
+                       <i class="nav-icon fas fa-cog"></i>
+                        Course
+                      </a>
+                    </li>
+                    <li class="nav-item ml-5 pb-2">
                       <a href="#">
                        <i class="nav-icon fas fa-cog"></i>
                         Subject
                       </a>
                     </li>
-                    <li class="nav-link ml-2">
-                      <a href="#">
-                       <i class="nav-icon fas fa-cog"></i>
-                        Course
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-          </li>
+                </ul>
+              </li>
           </ul>
         </ul>
       </nav>

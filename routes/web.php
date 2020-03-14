@@ -35,6 +35,15 @@ Route::group(['middleware' => ['auth']], function() {
 
 	Route::get('/dashboard', 'Admin\DashboardController@dashboard')->name('dashboard');
 
+	
+	//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Course Function xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+	Route::group(['prefix' => 'course'], function() {
+	    Route::get('/list', 'CourseModelController@index')->name('view.course.index');
+	    Route::get('/create', 'CourseModelController@create')->name('view.course.create');
+	    Route::post('/store', 'CourseModelController@store')->name('course.store');
+	});
+
+
 
 
 });
