@@ -29,15 +29,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    protected $guard_name = [
-        'super-admin',
-        'admin',
-        'instructor',
-        'registrar',
-        'cashier',
-        'trainee',
-        'web'
-    ];
+    protected $guard_name = 'web';
 
     public function posts()
 {        return $this->hasMany('App\Post');
