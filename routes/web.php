@@ -42,8 +42,12 @@ Route::group(['middleware' => ['auth']], function() {
 	    Route::get('/create', 'CourseModelController@create')->name('view.course.create');
 	    Route::post('/store', 'CourseModelController@store')->name('course.store');
 	});
-
-
+	//-------------------------------User Controller-------------------------------------------
+	Route::group(['prefix' => 'user'], function() {
+		Route::get('/list', 'UserModelController@index')->name('view.user.index');
+		Route::get('/create', 'UserModelController@create')->name('view.user.create');
+		Route::post('/store', 'UserModelController@store')->name('user.store');
+	});
 
 
 });
