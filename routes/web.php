@@ -40,7 +40,9 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::group(['prefix' => 'course'], function() {
 	    Route::get('/list', 'CourseModelController@index')->name('view.course.index');
 	    Route::get('/create', 'CourseModelController@create')->name('view.course.create');
+	    Route::get('/edit/{id}', 'CourseModelController@edit')->name('view.course.edit');
 	    Route::post('/store', 'CourseModelController@store')->name('course.store');
+	    Route::put('/update', 'CourseModelController@update')->name('course.update');
 	});
 
 

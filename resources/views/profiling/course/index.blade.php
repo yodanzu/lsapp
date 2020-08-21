@@ -7,16 +7,6 @@
 @section('title', 'Course')
 
 
-
-
-
-@section('extralink-css')
- <link rel="stylesheet" href="{{ asset('/plugins/datatables-bs4/css/dataTables.bootstrap4.css')}}">
-@endsection
-
-
-
-
 @section('content-header')
 
 
@@ -59,7 +49,7 @@
 					 <table id="table_course_list" class="table table-bordered table-striped " style="width: 100%;" cellspacing="0">
 					 	<thead>
 					 		<tr style="font-size: 15px; text-transform: uppercase;">
-						 		@php $arr_header = ['#','Course Code', 'Course Description', 'Action'];
+						 		@php $arr_header = ['#','Course Code', 'Course Description','Date Created', 'Action'];
 						 		@endphp
 						 		@for( $num = 0; $num <(count($arr_header)); $num++ )
 									<th class="text-center">
@@ -69,7 +59,26 @@
 						 		@endfor
 					 		</tr>
 					 	</thead>
-						
+					 	<tbody>
+					 		@foreach($data as $key => $course)
+					 		<tr>
+					 			<td>{{ $key+1 }}</td>
+					 			<td>{{ $course->course_code }}</td>
+					 			<td>{{ $course->course_description }}</td>
+					 			<td>
+					 				{{ date('m-d-Y', strtotime($course->created_at)) }}  
+					 			</td>
+					 			<td>
+					 				<a href="{{ route('view.course.edit', Crypt::encrypt($course->id)) }}" class="btn btn-primary">
+					 					Edit
+					 				</a>
+					 				<a href="#" class="btn btn-danger">
+					 					Delete
+					 				</a>
+					 			</td>
+					 		</tr>
+					 		@endforeach
+					 	</tbody>
 					 </table>
 				</div>
 			</div>
@@ -80,10 +89,7 @@
 @endsection
 
 @section('extra-script')
-<!-- DataTables -->
 
-<script src="{{ asset('/plugins/datatables/jquery.dataTables.js') }}"></script>
-<script src="{{ asset('/plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
 <script type="text/javascript">
 $(document).ready(function() {
 

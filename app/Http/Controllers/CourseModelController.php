@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\CourseModel;
 use Illuminate\Http\Request;
+use App\Models\CourseModel as Course;
+use App\Http\Requests\Course\StoreCourseFormRequest;
+use Crypt;
 
 class CourseModelController extends Controller
 {
@@ -14,7 +16,8 @@ class CourseModelController extends Controller
      */
     public function index()
     {
-        return view('profiling.course.index');
+        $data = Course::all();
+        return view('profiling.course.index',compact('data'));
     }
 
     /**
@@ -28,38 +31,19 @@ class CourseModelController extends Controller
     }
 
 
-    public function validateCourse(Request $request)
-    {
-        $rules = [
-            'course_code' => 'required|unique:course,course_code',
-            'course_description' => 'required|unique:course,course_description'
-        ];
 
-        $messages= [
-            'course_code.required' => 'This field is required!!',
-            'course_description.required' => 'This field is required!!',
-            'course_code.unique' => 'This '.$request->course_code.' is already exists please changed..!',
-            'course_description.unique' => 'This '.$request->course_description.' is already exists please changed..!'
-        ];
-
-        return $this->validate($request, $rules, $messages);
-
-    }
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\ResponseCourse
      */
-    public function store(Request $request)
+    public function store(StoreCourseFormRequest $request)
     {
-        $this->validateCourse($request);
-        $data = $request->only([
-            'course_code',
-            'course_description'
-        ]);
 
-        CourseModel::create($data);
+        $data = $request->getData();
+
+        Course::create($data);
 
         return redirect()->back()->with('success_message', 'Successfully Added Course Information');
     }
@@ -81,9 +65,13 @@ class CourseModelController extends Controller
      * @param  \App\Models\CourseModel  $courseModel
      * @return \Illuminate\Http\Response
      */
-    public function edit(CourseModel $courseModel)
+    public function edit($id)
     {
-        //
+        $url = Crypt::decrypt($id);
+
+        $data = Course::findOrFail($url);
+        return view('profiling.course.edit', compact('data'));
+
     }
 
     /**
@@ -93,9 +81,12 @@ class CourseModelController extends Controller
      * @param  \App\Models\CourseModel  $courseModel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, CourseModel $courseModel)
+    public function update(StoreCourseFormRequest $request)
     {
-        //
+        $data = $request->getData();
+        $data->update();
+
+        return back();
     }
 
     /**
