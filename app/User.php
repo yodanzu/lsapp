@@ -17,7 +17,15 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name',
+        'firstName',
+        'lastName',
+        'birthDate',
+        'address',
+        'phoneNumber',
+        'userType',
+        'email',
+        'password'
     ];
 
     /**
@@ -50,4 +58,15 @@ class User extends Authenticatable
         return $this->hasMany('App\File');
         
     }
+
+    public function roles(){
+        return $this->hasMany('App\Role');
+        
+    }
+
+    public function permissions(){
+        return $this->hasMany('App\Permission');
+        
+    }
+    
 }

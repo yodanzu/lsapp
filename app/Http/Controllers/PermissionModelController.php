@@ -2,21 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
 use Illuminate\Http\Request;
-use Crypt;
-use App\Http\Requests\User\UserStoreFormRequest;
-class UserModelController extends Controller
+
+class PermissionModelController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response    
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $data = User::all();
-        return view('profiling.admin.user.index',compact('data'));
+        return view('profiling.admin.permission.index',);
     }
 
     /**
@@ -26,10 +23,8 @@ class UserModelController extends Controller
      */
     public function create()
     {
-        return view('profiling.admin.user.create');
+        //
     }
-
-
 
     /**
      * Store a newly created resource in storage.
@@ -37,15 +32,9 @@ class UserModelController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserStoreFormRequest $request)
+    public function store(Request $request)
     {
-        
-        $data = $request->getData();
-        /**dd($data);**/
-        User::create($data);
-
-        return redirect()->back ()->with('success_message', 'Succesfully Added User Information');
-
+        //
     }
 
     /**
@@ -67,11 +56,7 @@ class UserModelController extends Controller
      */
     public function edit($id)
     {
-        $url = Crypt::decrypt($id);
-
-        $data = User::findOrFail($url);
-        return view('profiling.admin.user.edit', compact('data'));
-
+        //
     }
 
     /**
@@ -81,14 +66,9 @@ class UserModelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UserStoreFormRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $url = Crypt::decrypt($id);
-        $data = $request->getData();
-        $update = User::findOrFail($url);
-        $update->update($data);
-
-        return back();
+        //
     }
 
     /**
@@ -99,6 +79,6 @@ class UserModelController extends Controller
      */
     public function destroy($id)
     {
-        
+        //
     }
 }

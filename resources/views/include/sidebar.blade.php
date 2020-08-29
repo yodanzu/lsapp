@@ -38,6 +38,24 @@
                     </li>
                   </li>
               </ul>
+              <ul class="nav nav-treeview">
+                  <li class="nav-item ml-5 pb-2">
+                      <a href="{{ route('view.role.index') }}">
+                       <i class="nav-icon fas fa-cog"></i>
+                        Role
+                      </a>
+                    </li>
+                  </li>
+              </ul>
+              <ul class="nav nav-treeview">
+                  <li class="nav-item ml-5 pb-2">
+                      <a href="{{ route('view.permission.index') }}">
+                       <i class="nav-icon fas fa-cog"></i>
+                        Permission
+                      </a>
+                    </li>
+                  </li>
+              </ul>
             </li>
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">

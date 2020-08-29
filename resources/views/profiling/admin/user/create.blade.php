@@ -67,15 +67,15 @@
 						</div>
 						<div class="card-body">
 								<div class="form-group">
-									<label>Employee ID</label>
-									<input type="text" name="employeeId" class="form-control {{ $errors->has('employeeId') ? 'has-errors' : '' }}" data-toggle="tootlip" data-placement="required" title="Required" autocomplete="off" required="on">
+									<label>First Name</label>
+									<input type="text" name="firstName" class="form-control {{ $errors->has('firstName') ? 'has-errors' : '' }}" data-toggle="tootlip" data-placement="required" title="Required" autocomplete="off" required="on">
 
 									<div class="mt-6">
-									@if($errors->has('employeeId'))
+									@if($errors->has('firstName'))
 										<span class="alert alert-danger">
 											<strong>
 												<i class="fas fa-exclamation-circle"></i>
-												{{ $errors->first('employeeId')}}
+												{{ $errors->first('firstName')}}
 											</strong>
 										</span>
 									@endif
@@ -83,14 +83,14 @@
 								</div>
 							
 								<div class="form-group">
-									<label>Full Name</label>
-									<input type="text" name="fullName" data-toggle="tooltip" data-placement="left" title="Required" class="form-control {{ $errors->has('fullName') ? 'has-errors' : '' }}" autocomplete="off" required="on">
+									<label>Last Name</label>
+									<input type="text" name="lastName" data-toggle="tooltip" data-placement="left" title="Required" class="form-control {{ $errors->has('lastName') ? 'has-errors' : '' }}" autocomplete="off" required="on">
 									<div class="mt-6"> 
-									@if($errors->has('course_description'))
+									@if($errors->has('lastName'))
 										<span class="alert alert-danger">
 											<strong>
 												<i class="fas fa-exclamation-circle"></i>
-												{{ $errors->first('fullName')}}
+												{{ $errors->first('lastName')}}
 											</strong>
 										</span>
 									@endif

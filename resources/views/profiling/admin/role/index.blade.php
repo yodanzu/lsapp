@@ -4,7 +4,7 @@
 
 
 
-@section('title', 'User')
+@section('title', 'Role')
 
 
 
@@ -25,7 +25,7 @@
     	<h5 class="page-header" style="color: #09C;font-size: 16px;">
 	      <i class="fa fa-paste fa-fw"></i>  User Maintenance &nbsp;&nbsp;
 	        <font style="color: #000;">
-	        <i class="fa fa-angle-double-right fa-fw"></i> &nbsp;&nbsp; <i class="fa fa-folder-open fa-fw"></i> User     </font>
+	        <i class="fa fa-angle-double-right fa-fw"></i> &nbsp;&nbsp; <i class="fa fa-folder-open fa-fw"></i> Role</font>
 
     	</h5>
 	</div>
@@ -42,13 +42,13 @@
 				<div class="card-header">
 					<ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
 						<li class="nav-item">
-						  	<a class="nav-link active" id="user-list"  href="{{ route('view.user.index') }}" role="tab" aria-controls="user-list" aria-selected="true" >
+						  	<a class="nav-link active" id="role-list"  href="{{ route('view.role.index') }}" role="tab" aria-controls="role-list" aria-selected="true" >
 							<i class="fas fa-bars"></i>
 							  Listing
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" id="user-list"  href="{{ route('view.user.create') }}" role="tab" aria-controls="user-list" aria-selected="true" >
+							<a class="nav-link" id="role-list"  href="{{ route('view.role.create') }}" role="tab" aria-controls="role-list" aria-selected="true" >
 							<i class="fas fa-plus-square"></i>
 							  Create
 							</a>
@@ -56,10 +56,10 @@
 					</ul>
 				</div>
 				<div class="card-body">
-					 <table id="table_user_list" class="table table-bordered table-striped " style="width: 100%;" cellspacing="0">
+					 <table id="table_role_list" class="table table-bordered table-striped " style="width: 100%;" cellspacing="0">
 					 	<thead>
 					 		<tr style="font-size: 15px; text-transform: uppercase;">
-						 		@php $arr_header = ['#','User', 'Role', 'Action'];
+						 		@php $arr_header = ['#','Role','Action'];
 						 		@endphp
 						 		@for( $num = 0; $num <(count($arr_header)); $num++ )
 									<th class="text-center">
@@ -71,7 +71,7 @@
 						 </thead>
 						 
 						 <tbody>
-					 		@foreach($data as $key => $user)
+					 		{{--@foreach($data as $key => $user)
 					 		<tr>
 					 			<td>{{ $key+1 }}</td>
 					 			<td>{{ $user->email }}</td>
@@ -87,7 +87,7 @@
 					 				</a>
 					 			</td>
 					 		</tr>
-					 		@endforeach
+					 		@endforeach--}}
 					 	</tbody>
 						
 					 </table>
@@ -107,7 +107,7 @@
 <script type="text/javascript">
 $(document).ready(function() {
 
-	$('#table_course_list').DataTable({
+	$('#table_role_list').DataTable({
 		"autoWidth": false,
 
 	});
