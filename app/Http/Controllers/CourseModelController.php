@@ -81,10 +81,12 @@ class CourseModelController extends Controller
      * @param  \App\Models\CourseModel  $courseModel
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreCourseFormRequest $request)
+    public function update(StoreCourseFormRequest $request, $id)
     {
+        $url = Crypt::decrypt($id);
         $data = $request->getData();
-        $data->update();
+        $update = Course::findOrFail($url);
+        $update->update($data);
 
         return back();
     }
