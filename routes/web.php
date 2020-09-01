@@ -38,9 +38,12 @@ Route::group(['middleware' => ['auth']], function() {
 	
 	//xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx Course Function xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 	Route::group(['prefix' => 'course'], function() {
-	    Route::get('/list', 'CourseModelController@index')->name('view.course.index');
-	    Route::get('/create', 'CourseModelController@create')->name('view.course.create');
+	    Route::get('/list', 'CourseModelController@index')->name('course.index');
+	    Route::get('/create', 'CourseModelController@create')->name('course.create');
+	    Route::get('/edit/{id}', 'CourseModelController@edit')->name('course.edit');
 	    Route::post('/store', 'CourseModelController@store')->name('course.store');
+	    Route::put('/update/{id}', 'CourseModelController@update')->name('course.update');
+	    Route::delete('/delete{id}','CourseModelController@destroy')->name('course.destroy');
 	});
 	//-------------------------------User Controller-------------------------------------------
 	Route::group(['prefix' => 'users'], function() {

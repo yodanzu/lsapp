@@ -18,6 +18,7 @@
   <link rel="stylesheet" href="{{ asset('dist/css/adminlte.min.css') }}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link rel="stylesheet" href="{{ asset('/plugins/datatables-bs4/css/dataTables.bootstrap4.css')}}">
   @yield('extralink-css')
   
 </head>
@@ -50,7 +51,6 @@
   <!-- /.content-wrapper -->
 
 
-    @include('include.footer')
 
 
 
@@ -69,6 +69,9 @@
 <script src="{{ asset('/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('/dist/js/adminlte.min.js') }}"></script>
+<!-- DataTables -->
+<script src="{{ asset('/plugins/datatables/jquery.dataTables.js') }}"></script>
+<script src="{{ asset('/plugins/datatables-bs4/js/dataTables.bootstrap4.js') }}"></script>
 @yield('extra-script')
 
 </body>
