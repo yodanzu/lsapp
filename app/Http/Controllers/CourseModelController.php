@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\CourseModel as Course;
 use App\Http\Requests\Course\StoreCourseFormRequest;
+use App\Http\Requests\Course\UpdateCourseFormRequest;
 use Crypt;
 
 class CourseModelController extends Controller
@@ -68,7 +69,6 @@ class CourseModelController extends Controller
     public function edit($id)
     {
         $url = Crypt::decrypt($id);
-
         $data = Course::findOrFail($url);
         return view('profiling.course.edit', compact('data'));
 
@@ -81,14 +81,14 @@ class CourseModelController extends Controller
      * @param  \App\Models\CourseModel  $courseModel
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreCourseFormRequest $request, $id)
+    public function update(UpdateCourseFormRequest $request, $id)
     {
         $url = Crypt::decrypt($id);
         $data = $request->getData();
         $update = Course::findOrFail($url);
+        $update->status = $data['status'];
         $update->update($data);
-
-        return back();
+        return back()->with('success_message', 'Successfully updated '.$update->course_code.'');
     }
 
     /**
@@ -98,7 +98,7 @@ class CourseModelController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(CourseModel $courseModel)
-    {
-        //
+    {   
+        
     }
 }

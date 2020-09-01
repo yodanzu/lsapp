@@ -32,13 +32,13 @@
 				<div class="card-header">
 					<ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
 						<li class="nav-item">
-						  	<a class="nav-link" id="course-list"  href="{{ route('view.course.index') }}" role="tab" aria-controls="course-list" aria-selected="true" >
+						  	<a class="nav-link" id="course-list"  href="{{ route('course.index') }}" role="tab" aria-controls="course-list" aria-selected="true" >
 							<i class="fas fa-bars"></i>
 							  Listing
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link active" id="course-list"  href="{{ route('view.course.create') }}" role="tab" aria-controls="course-list" aria-selected="true" >
+							<a class="nav-link active" id="course-list"  href="{{ route('course.create') }}" role="tab" aria-controls="course-list" aria-selected="true" >
 							<i class="fas fa-plus-square"></i>
 							  Create
 							</a>

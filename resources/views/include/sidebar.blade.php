@@ -41,29 +41,18 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <li class="nav-item has-treeview">
-                <a href="#" class="nav-link ml-2">
-                   <i class="far fa-folder nav-icon pb-2"></i>
-                    <p>
-                      Common
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item ml-5 pb-2">
-                      <a href="{{ route('view.course.index') }}">
-                       <i class="nav-icon fas fa-cog"></i>
-                        Course
-                      </a>
-                    </li>
-                    <li class="nav-item ml-5 pb-2">
-                      <a href="#">
-                       <i class="nav-icon fas fa-cog"></i>
-                        Subject
-                      </a>
-                    </li>
-                </ul>
-              </li>
+                <li class="nav-item ml-4 pb-2">
+                    <a href="{{ route('course.index') }}">
+                     <i class="nav-icon fas fa-cog"></i>
+                      Subject
+                    </a>
+                </li>
+                 <li class="nav-item ml-4 pb-2">
+                    <a href="#">
+                     <i class="nav-icon fas fa-cog"></i>
+                      Expertise
+                    </a>
+                </li>
           </ul>
         </ul>
       </nav>

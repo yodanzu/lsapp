@@ -32,13 +32,13 @@
 				<div class="card-header">
 					<ul class="nav nav-tabs" id="custom-tabs-one-tab" role="tablist">
 						<li class="nav-item">
-						  	<a class="nav-link active" id="course-list"  href="{{ route('view.course.index') }}" role="tab" aria-controls="course-list" aria-selected="true" >
+						  	<a class="nav-link active" id="course-list"  href="{{ route('course.index') }}" role="tab" aria-controls="course-list" aria-selected="true" >
 							<i class="fas fa-bars"></i>
 							  Listing
 							</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" id="course-list"  href="{{ route('view.course.create') }}" role="tab" aria-controls="course-list" aria-selected="true" >
+							<a class="nav-link" id="course-list"  href="{{ route('course.create') }}" role="tab" aria-controls="course-list" aria-selected="true" >
 							<i class="fas fa-plus-square"></i>
 							  Create
 							</a>
@@ -49,7 +49,7 @@
 					 <table id="table_course_list" class="table table-bordered table-striped " style="width: 100%;" cellspacing="0">
 					 	<thead>
 					 		<tr style="font-size: 15px; text-transform: uppercase;">
-						 		@php $arr_header = ['#','Course Code', 'Course Description','Date Created', 'Action'];
+						 		@php $arr_header = ['#','Course Code', 'Subject Code','Subject Description','Date Created', 'Action'];
 						 		@endphp
 						 		@for( $num = 0; $num <(count($arr_header)); $num++ )
 									<th class="text-center">
@@ -63,13 +63,14 @@
 					 		@foreach($data as $key => $course)
 					 		<tr>
 					 			<td>{{ $key+1 }}</td>
-					 			<td>{{ $course->course_code }}</td>
+					 			<td>{{ $course->status }}</td>
+					 			<td>{{ $course->course_code}}</td>
 					 			<td>{{ $course->course_description }}</td>
 					 			<td>
 					 				{{ date('m-d-Y', strtotime($course->created_at)) }}  
 					 			</td>
 					 			<td>
-					 				<a href="{{ route('view.course.edit', Crypt::encrypt($course->id)) }}" class="btn btn-primary">
+					 				<a href="{{ route('course.edit', Crypt::encrypt($course->id)) }}" class="btn btn-primary">
 					 					Edit
 					 				</a>
 					 				<a href="#" class="btn btn-danger">
