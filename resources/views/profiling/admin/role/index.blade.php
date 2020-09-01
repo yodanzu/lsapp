@@ -71,15 +71,15 @@
 						 </thead>
 						 
 						 <tbody>
-					 		{{--@foreach($data as $key => $user)
+					 		@foreach($data as $key => $role)
 					 		<tr>
 					 			<td>{{ $key+1 }}</td>
-					 			<td>{{ $user->email }}</td>
+					 			<td>{{ $role->name }}</td>
 					 			<td>
 					 				
 					 			</td>
 					 			<td>
-					 				<a href="{{ route('view.user.edit', Crypt::encrypt($user->id)) }}" class="btn btn-primary">
+					 				<a href="{{ route('view.role.edit', Crypt::encrypt($role->id)) }}" class="btn btn-primary">
 					 					Edit
 					 				</a>
 					 				<a href="#" class="btn btn-danger">
@@ -87,7 +87,7 @@
 					 				</a>
 					 			</td>
 					 		</tr>
-					 		@endforeach--}}
+					 		@endforeach
 					 	</tbody>
 						
 					 </table>

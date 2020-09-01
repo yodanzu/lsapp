@@ -171,21 +171,6 @@
 									@endif
 									</div>
                                 </div>
-
-                                <div class="form-group">
-									<label>Password</label>
-									<input type="password" name="password" data-toggle="tooltip" data-placement="left" title="Required" class="form-control {{ $errors->has('password') ? 'has-errors' : '' }}" autocomplete="off" required="on">
-									<div class="mt-6"> 
-									@if($errors->has('password'))
-										<span class="alert alert-danger">
-											<strong>
-												<i class="fas fa-exclamation-circle"></i>
-												{{ $errors->first('password')}}
-											</strong>
-										</span>
-									@endif
-									</div>
-                                </div>
 							
 								<div class="form-group">
 									<center>

@@ -6,6 +6,8 @@ use App\User;
 use Illuminate\Http\Request;
 use Crypt;
 use App\Http\Requests\User\UserStoreFormRequest;
+use App\Http\Requests\User\UserUpdateFormRequest;
+
 class UserModelController extends Controller
 {
     /**
@@ -41,9 +43,9 @@ class UserModelController extends Controller
     {
         
         $data = $request->getData();
+        $data['password'] = bcrypt('sample');
         /**dd($data);**/
-        User::create($data);
-
+        $user = User::create($data);
         return redirect()->back ()->with('success_message', 'Succesfully Added User Information');
 
     }
@@ -81,14 +83,15 @@ class UserModelController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UserStoreFormRequest $request, $id)
+    public function update(UserUpdateFormRequest $request, $id)
     {
         $url = Crypt::decrypt($id);
         $data = $request->getData();
-        $update = User::findOrFail($url);
-        $update->update($data);
+        $user = User::findOrFail($url);
+        $user->password = bycrypt('sample');
+        $user->update($data);
 
-        return back();
+        return back()->with('success_message', 'success');
     }
 
     /**

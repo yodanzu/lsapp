@@ -48,7 +48,7 @@ Route::group(['middleware' => ['auth']], function() {
 		Route::get('/create', 'UserModelController@create')->name('view.user.create');
 		Route::get('/edit/{id}', 'UserModelController@edit')->name('view.user.edit');
 		Route::post('/store', 'UserModelController@store')->name('user.store');
-		Route::put('/update/{id}', 'UserModelController@update')->name('user.update');
+		Route::put('/update/{id}', 'UserModelController@update')->name('users.update');
 	});
 
 	//-------------------------------Role Controller-------------------------------------------
@@ -57,7 +57,7 @@ Route::group(['middleware' => ['auth']], function() {
 		Route::get('/create', 'RoleModelController@create')->name('view.role.create');
 		Route::get('/edit/{id}', 'RoleModelController@edit')->name('view.role.edit');
 		Route::post('/store', 'RoleModelController@store')->name('role.store');
-		Route::put('/update/{id}', 'RoleModelController@update')->name('role.update');
+		Route::post('/update/{id}', 'RoleModelController@update')->name('role.update');
 	});
 
 	//-------------------------------Permission Controller-------------------------------------------
